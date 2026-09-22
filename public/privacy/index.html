@@ -58,8 +58,15 @@
 
       <h2>What is stored</h2>
       <p>
-        Only display settings — font size, line height, column width,
-        typeface, theme, and which reading of a tagged PDF to open with. No document content.
+        Only settings — font size, line height, column width, typeface, theme, which
+        reading of a tagged PDF to open with, which language the interface is in, and
+        which language generated descriptions are written in. No document content.
+      </p>
+      <p>
+        Whether PDFs open in the Reader is not among them: that one is a browser
+        permission rather than a setting, it belongs to the device it was granted on,
+        and the settings panel reads it back from the browser rather than remembering
+        an answer of its own.
       </p>
       <p>
         They live in the browser's sync storage, so they follow you between devices signed
@@ -100,11 +107,35 @@
               <th scope="row"><code>sidePanel</code></th>
               <td>Opens the settings in the browser's side panel.</td>
             </tr>
+            <tr>
+              <th scope="row"><code>declarativeNetRequestWithHostAccess</code></th>
+              <td>
+                Registers the redirect rule behind the "Opening PDFs" setting, and only
+                for sites you have granted access to &mdash; which is what the
+                <code>WithHostAccess</code> half of the name means.
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
       <p>
-        It never requests access to all sites (<code>&lt;all_urls&gt;</code>).
+        None of those is a host permission, and installing the extension grants access
+        to no site at all.
+      </p>
+      <p>
+        One optional host permission exists, and one feature uses it. Switching
+        <strong>Opening PDFs</strong> to the Reader asks for access to every
+        <code>http</code> and <code>https</code> site; switching it back hands that
+        access in again. Sending a PDF to the Reader means recognising its address
+        <em>before the page loads</em>, and no browser allows that for sites an
+        extension cannot already reach &mdash; so the feature costs that access, and
+        there is no smaller version of it. Leave the setting alone and nothing is ever
+        asked for.
+      </p>
+      <p>
+        The rule itself is declarative: the browser matches it and acts on it, so the
+        extension sees no request, runs no code as you navigate, and learns nothing
+        about what you visit.
       </p>
 
       <h2>This site</h2>

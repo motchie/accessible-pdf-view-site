@@ -15,5 +15,6 @@
     // response headers. It adds nothing to a request it does not need to see.
     "run_worker_first": true
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "routes": [{ "pattern": "accessiblepdfview.org", "custom_domain": true }]
 }

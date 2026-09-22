@@ -88,6 +88,13 @@
         </table>
       </div>
 
+      <p>
+        Normally you open a PDF and press the toolbar button. Switching
+        <strong>Opening PDFs</strong> to the Reader in the settings makes addresses
+        ending in <code>.pdf</code> open here directly instead; the browser asks for
+        access at the moment you switch it on, and gets it back when you switch it off.
+      </p>
+
       <h3>The principle</h3>
       <p>
         It does not assert what cannot be confirmed by looking.
@@ -134,17 +141,22 @@
         on-device model, which runs on your machine.
       </p>
       <p>
-        It asks for four permissions and none of them is a host permission.
-        It never requests access to all sites (<code>&lt;all_urls&gt;</code>).
+        It asks for five permissions at install and none of them is a host
+        permission: installing it grants access to no site. One optional host
+        permission exists, asked for only when you switch
+        <strong>Opening PDFs</strong> to the Reader, and handed back when you switch
+        it away.
       </p>
       <p><a href="/privacy/">More about privacy</a></p>
 
       <h3 id="getting-it">Getting it</h3>
       <div class="note">
         <p>
-          Not published yet. A Chrome Web Store listing is being prepared,
-          and the link will appear here once it is live. Until then it can be loaded from
-          source.
+          Not published yet. Listings are being prepared for the Chrome Web Store and
+          for Firefox's add-on site, and the links will appear here once they are live.
+          Until then it can be loaded from source. Chrome and Firefox are both
+          supported (Manifest V3) — though image descriptions and OCR use Chrome's
+          built-in AI and are available there only.
         </p>
       </div>
       <p>
