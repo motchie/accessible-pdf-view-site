@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>プライバシー — Accessible PDF View</title>
+    <meta name="description" content="Accessible PDF View が何を扱い、何を扱わないか。" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/theme.js"></script>
+    <link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/privacy/" />
+  </head>
+  <body>
+    <header>
+      <a class="skip" href="#main">本文へスキップ</a>
+      <div class="top-bar">
+        <p class="lang">
+          <a href="/ja/">Accessible PDF View</a> ·
+          <a href="/privacy/" hreflang="en" lang="en">English</a>
+        </p>
+        <fieldset class="theme-toggle" data-theme-toggle hidden>
+          <legend>テーマ</legend>
+          <div class="theme-toggle__options">
+            <label><input type="radio" name="apv-theme" value="system" /><span>システム</span></label>
+            <label><input type="radio" name="apv-theme" value="light" /><span>ライト</span></label>
+            <label><input type="radio" name="apv-theme" value="dark" /><span>ダーク</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <h1>プライバシー</h1>
+      <p class="sub">最終更新: 2026 年 9 月 22 日</p>
+    </header>
+
+    <main id="main">
+      <h2>収集しないもの</h2>
+      <p>
+        この拡張機能は、利用者に関する情報を一切収集しません。
+        解析データも、利用統計も、クラッシュレポートも送信しません。開発者が用意したサーバーはなく、
+        送信先自体が存在しません。
+      </p>
+
+      <h2>PDF はどこで処理されるか</h2>
+      <p>
+        すべてブラウザの中です。
+        PDF の解析、構造の読み取り、ページの描画は、あなたの端末上で完結します。
+        開いた PDF が外部へ送信されることはありません。
+      </p>
+      <p>
+        画像の説明生成と OCR は任意の機能で、ブラウザに内蔵された
+        端末内で動作する AI モデルを使います。画像がネットワークに出ることはありません。
+        端末内モデルが利用できない環境では、その機能は提供されません。
+      </p>
+      <p>
+        なお、URL を指定して PDF を開く場合、その PDF の取得はブラウザが行います。
+        これは通常のダウンロードと同じで、取得元のサーバーには通常のアクセス記録が残ります。
+      </p>
+
+      <h2>保存されるもの</h2>
+      <p>
+        保存されるのは表示設定だけです — 文字サイズ、行間、本文の幅、書体、テーマ、
+        構造の読み取り方の初期値。文書の内容は含まれません。
+      </p>
+      <p>
+        これらはブラウザの同期ストレージに保存されるため、同じブラウザにログインしている端末間で共有されます。
+        共有されるのは上記の設定値のみです。
+      </p>
+
+      <h2>権限</h2>
+      <div class="scroll">
+        <table>
+          <caption>要求する権限は 4 つで、いずれもホスト権限ではありません</caption>
+          <thead>
+            <tr>
+              <th scope="col">権限</th>
+              <th scope="col">用途</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>activeTab</code></th>
+              <td>
+                ツールバーのボタンを押したそのタブに限り、一時的に読み取りを許可します。PDF
+                のデータを読むために必要です。ボタンを押していないタブには及びません。
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>storage</code></th>
+              <td>上記の表示設定を保存します。</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>contextMenus</code></th>
+              <td>
+                PDF へのリンクを右クリックしたときに「Accessible PDF View
+                で開く」を表示します。この項目を実行することも、上記の一時的な読み取り許可が与えられる操作のひとつです。
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>sidePanel</code></th>
+              <td>設定画面をブラウザのサイドパネルとして開きます。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        すべてのサイトへのアクセス権（<code>&lt;all_urls&gt;</code>）は要求しません。
+      </p>
+
+      <h2>このサイトについて</h2>
+      <p>
+        このサイトはアクセス解析を行いません。Cookie を使用せず、外部のスクリプトやフォントを読み込みません。
+        サーバー側には、ホスティング事業者（Cloudflare）が運用上必要とする範囲の記録が残ります。
+      </p>
+      <p>
+        このサイトが実行するスクリプトは 1 つだけです — ページ上部の「テーマ」
+        の設定を記憶するためのもので、選択内容をお使いの端末の <code>localStorage</code>
+        に保存するだけです。どこにも送信されません。それ以外のスクリプトは一切読み込みません。
+      </p>
+
+      <h2>変更したとき</h2>
+      <p>
+        この方針が変わる場合は、このページの日付を更新します。もし将来、端末外へ送信する機能
+        （たとえばサーバー側の OCR）を追加する場合は、既定で無効とし、実行前に明示的な同意を求めます。
+        黙って有効になることはありません。
+      </p>
+    </main>
+
+    <footer>
+      <p><a href="/ja/">Accessible PDF View</a> — MIT ライセンス。</p>
+    </footer>
+  </body>
+</html>

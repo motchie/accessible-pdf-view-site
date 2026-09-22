@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    // WebWorker rather than DOM: this code runs in a Worker, and typing it
+    // against a document it does not have is how DOM calls get written by
+    // accident. It is also why `@cloudflare/workers-types` is not needed for
+    // what this Worker actually does — `Request`, `Response` and `URL` are all
+    // it touches.
+    "lib": ["ES2022", "WebWorker"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src/**/*.ts"]
+}

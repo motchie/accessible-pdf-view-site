@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy — Accessible PDF View</title>
+    <meta name="description" content="What Accessible PDF View handles, and what it does not." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/theme.js"></script>
+    <link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/privacy/" />
+  </head>
+  <body>
+    <header>
+      <a class="skip" href="#main">Skip to content</a>
+      <div class="top-bar">
+        <p class="lang">
+          <a href="/">Accessible PDF View</a> ·
+          <a href="/ja/privacy/" hreflang="ja" lang="ja">日本語</a>
+        </p>
+        <fieldset class="theme-toggle" data-theme-toggle hidden>
+          <legend>Theme</legend>
+          <div class="theme-toggle__options">
+            <label><input type="radio" name="apv-theme" value="system" /><span>System</span></label>
+            <label><input type="radio" name="apv-theme" value="light" /><span>Light</span></label>
+            <label><input type="radio" name="apv-theme" value="dark" /><span>Dark</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <h1>Privacy</h1>
+      <p class="sub">Last updated: 22 September 2026</p>
+    </header>
+
+    <main id="main">
+      <h2>What is not collected</h2>
+      <p>
+        The extension collects nothing about you. No analytics, no usage
+        statistics, no crash reports. There is no server behind it, so there is nowhere for
+        anything to be sent.
+      </p>
+
+      <h2>Where PDFs are processed</h2>
+      <p>
+        Entirely in your browser. Parsing, structure extraction and page
+        rendering all happen on your machine. A PDF you open is never uploaded.
+      </p>
+      <p>
+        Image descriptions and OCR are optional and use the browser's own
+        on-device model. No image leaves the machine. Where no on-device
+        model is available, the feature is simply not offered.
+      </p>
+      <p>
+        When a PDF is opened from a URL, the browser fetches it as it would any download,
+        and the server hosting it sees an ordinary request.
+      </p>
+
+      <h2>What is stored</h2>
+      <p>
+        Only display settings — font size, line height, column width,
+        typeface, theme, and which reading of a tagged PDF to open with. No document content.
+      </p>
+      <p>
+        They live in the browser's sync storage, so they follow you between devices signed
+        into the same browser. Those settings are all that is synced.
+      </p>
+
+      <h2>Permissions</h2>
+      <div class="scroll">
+        <table>
+          <caption>Four permissions, none of them a host permission</caption>
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th scope="col">Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>activeTab</code></th>
+              <td>
+                A temporary grant for the one tab whose toolbar button you pressed, which is
+                what allows the PDF's bytes to be read. It does not extend to other tabs.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>storage</code></th>
+              <td>Saves the display settings above.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>contextMenus</code></th>
+              <td>
+                Adds "open in Accessible PDF View" when you right-click a link to a
+                PDF. Running that item is itself one of the gestures that grants the
+                temporary access above.
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><code>sidePanel</code></th>
+              <td>Opens the settings in the browser's side panel.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        It never requests access to all sites (<code>&lt;all_urls&gt;</code>).
+      </p>
+
+      <h2>This site</h2>
+      <p>
+        No analytics, no cookies, no external scripts or fonts. The hosting provider
+        (Cloudflare) keeps the operational records it needs to serve the site.
+      </p>
+      <p>
+        This site runs exactly one script — it remembers the
+        Theme choice at the top of the page by writing it to your device's own
+        <code>localStorage</code>. Nothing is sent anywhere. No other script is
+        loaded.
+      </p>
+
+      <h2>If this changes</h2>
+      <p>
+        The date on this page changes with the policy. If a feature that sends anything off
+        the device is ever added — hosted OCR, for instance — it will be
+        off by default and will ask before it runs. Nothing of that kind
+        will be switched on quietly.
+      </p>
+    </main>
+
+    <footer>
+      <p><a href="/">Accessible PDF View</a> — MIT licensed.</p>
+    </footer>
+  </body>
+</html>

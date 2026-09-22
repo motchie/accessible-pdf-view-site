@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img">
+  <title>Accessible PDF View</title>
+  <rect x="3" y="3" width="26" height="26" rx="3" fill="none" stroke="#1a73e8" stroke-width="2" />
+  <path
+    d="M0 22h16a2 2 0 0 0 2-2v-8a2 2 0 0 1 2-2h12"
+    fill="none"
+    stroke="#1a73e8"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+</svg>

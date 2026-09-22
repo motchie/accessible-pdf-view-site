@@ -1,0 +1,26 @@
+{
+  "name": "accessiblepdfview-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "accessiblepdfview.org — the site, separate from the extension.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "compile": "tsc --noEmit",
+    "a11y": "node a11y-check.mjs",
+    "favicons": "node make-favicons.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "playwright": "^1.63.0",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}

@@ -1,0 +1,343 @@
+/*
+ * accessiblepdfview.org.
+ *
+ * The site runs one script (`theme.js`), for a tri-state light/dark/system
+ * toggle — everything else here is still plain HTML and CSS.
+ *
+ * The palette is written the way the extension's is, and for the reason the
+ * extension learned the hard way: `color-scheme` plus `light-dark()` did not
+ * reliably follow an explicit choice — `color-scheme: light` sometimes still
+ * resolved `light-dark()` to its dark branch. Colours are selected by a
+ * `data-theme` attribute instead, which is a plain selector match and depends
+ * on nothing subtle: light is the base, a guarded `prefers-color-scheme` query
+ * covers "system" when nobody has set `data-theme` explicitly, and
+ * `[data-theme="dark"]` / `[data-theme="light"]` override it either way.
+ * `theme.js` sets or clears that attribute; `color-scheme` is still set here
+ * because it is what paints scrollbars and form controls, and it no longer
+ * has anything to do with which colours are chosen.
+ */
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1b1d21;
+  --muted: #4b5058;
+  --border: #c9cdd4;
+  --surface: #f4f6f8;
+  --accent: #0b57d0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #16181c;
+    --fg: #e8eaed;
+    --muted: #a9b0ba;
+    --border: #3a3f47;
+    --surface: #22262c;
+    --accent: #a8c7fa;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #16181c;
+  --fg: #e8eaed;
+  --muted: #a9b0ba;
+  --border: #3a3f47;
+  --surface: #22262c;
+  --accent: #a8c7fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  /* No web fonts. Nothing is fetched to render this page. */
+  font-family: system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP',
+    'Yu Gothic', Meiryo, sans-serif;
+  /* `ch` ties the measure to the font, so browser zoom widens the column
+     instead of squeezing the text. */
+  line-height: 1.8;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 1;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+  border-radius: 0.25rem;
+}
+
+header,
+main,
+footer {
+  max-width: 72ch;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+header {
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* The brand lockup: mark plus wordmark, and the wordmark is the page's H1 —
+   the product name is what a page is "about" before any tagline is. */
+.lock {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.lock__mark {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--accent);
+  flex: none;
+}
+
+/* Plain page headings (Privacy, 404) share this size with the hero tagline;
+   .lock__word below overrides it back down for the one H1 that is the brand
+   name instead of a headline. */
+h1,
+.tagline {
+  margin: 0;
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+/* The tagline reads second: same size it always was, just lighter than the
+   brand name above it so the name is what lands first. */
+.tagline {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.lock__word {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.sub {
+  margin: 0.9rem 0 0;
+  font-size: 1.125rem;
+  max-width: 44ch;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cta__primary {
+  display: inline-block;
+  padding: 0.65rem 1.3rem;
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 0.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cta__primary:hover {
+  text-decoration: underline;
+}
+
+/* Section headings: H2 on Privacy (whose H1 is the page's own title, so its
+   sections sit one level down), H3 on the home page (whose H1 is the brand
+   name and H2 is the tagline, so sections sit one level further down still).
+   Same look either way. */
+main h2,
+main h3 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: 1.375rem;
+  line-height: 1.35;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1.0625rem;
+}
+
+p,
+ul,
+ol,
+table {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-inline-start: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+caption {
+  text-align: start;
+  color: var(--muted);
+  padding-bottom: 0.4rem;
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+  text-align: start;
+  vertical-align: top;
+}
+
+thead th {
+  background: var(--surface);
+}
+
+/* Wide tables scroll inside their own box rather than making the page scroll. */
+.scroll {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.note {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.note > :last-child {
+  margin-bottom: 0;
+}
+
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.lang {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* Hidden until theme.js confirms it can wire the buttons up — a control that
+   cannot do anything must not be shown to a reader without JavaScript. */
+.theme-toggle {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.theme-toggle legend {
+  padding: 0;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.theme-toggle__options {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem;
+  gap: 0.15rem;
+}
+
+.theme-toggle__options label {
+  position: relative;
+  font-size: 0.8125rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.theme-toggle__options input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.theme-toggle__options input:checked + span {
+  font-weight: 700;
+}
+
+.theme-toggle__options label:has(input:checked) {
+  background: var(--surface);
+}
+
+.theme-toggle__options label:has(input:focus-visible) {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 0.2em;
+}
+
+@media (forced-colors: active) {
+  .note {
+    border: 1px solid CanvasText;
+  }
+  :focus-visible {
+    outline-color: Highlight;
+  }
+}

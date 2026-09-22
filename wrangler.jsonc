@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "accessiblepdfview",
+  "main": "src/index.ts",
+  // Pinned rather than floating: a compatibility date is what keeps a Worker's
+  // runtime behaviour from changing under a site nobody is actively watching.
+  "compatibility_date": "2026-08-31",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    // A content site, not an app: a missing page is a missing page, and must
+    // not be answered with the front page dressed up as one.
+    "not_found_handling": "404-page",
+    // The Worker runs first on every request because its whole job is the
+    // response headers. It adds nothing to a request it does not need to see.
+    "run_worker_first": true
+  },
+  "observability": { "enabled": true }
+}
