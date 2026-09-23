@@ -9,7 +9,8 @@
     "deploy": "wrangler deploy",
     "compile": "tsc --noEmit",
     "a11y": "node a11y-check.mjs",
-    "favicons": "node make-favicons.mjs"
+    "favicons": "node make-favicons.mjs",
+    "og-images": "node make-og-images.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
