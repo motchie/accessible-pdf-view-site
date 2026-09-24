@@ -2,3 +2,7 @@ node_modules/
 .wrangler/
 .dev.vars
 *.log
+
+# Local only: CLOUDFLARE_ACCOUNT_ID for `wrangler deploy`, which cannot pick
+# between accounts on its own. Wrangler loads this file itself.
+.env

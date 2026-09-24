@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://accessiblepdfview.org/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/" />
+  </url>
+  <url>
+    <loc>https://accessiblepdfview.org/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/" />
+  </url>
+  <url>
+    <loc>https://accessiblepdfview.org/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/privacy/" />
+  </url>
+  <url>
+    <loc>https://accessiblepdfview.org/ja/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/privacy/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/privacy/" />
+  </url>
+</urlset>
