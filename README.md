@@ -65,7 +65,7 @@ the page. Those still want a human pass.
 
 ## Deploying
 
-    pnpm deploy     # wrangler deploy
+    pnpm run deploy # wrangler deploy — not `pnpm deploy`, which is pnpm's own command
 
 Needs, once, in the Cloudflare dashboard or via Wrangler:
 
