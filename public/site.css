@@ -22,9 +22,13 @@
   --bg: #ffffff;
   --fg: #1b1d21;
   --muted: #4b5058;
-  --border: #c9cdd4;
+  /* Dividers, table rules and the toggle's outline: at least 3:1 against
+     both --bg and --surface, as DADS asks of non-text parts. */
+  --border: #7d838c;
   --surface: #f4f6f8;
   --accent: #0b57d0;
+  /* A reddish purple, told from --accent by hue as well as by name. */
+  --visited: #7b2d8e;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,9 +36,10 @@
     --bg: #16181c;
     --fg: #e8eaed;
     --muted: #a9b0ba;
-    --border: #3a3f47;
+    --border: #737983;
     --surface: #22262c;
     --accent: #a8c7fa;
+    --visited: #e0b6ff;
   }
 }
 
@@ -42,9 +47,10 @@
   --bg: #16181c;
   --fg: #e8eaed;
   --muted: #a9b0ba;
-  --border: #3a3f47;
+  --border: #737983;
   --surface: #22262c;
   --accent: #a8c7fa;
+  --visited: #e0b6ff;
 }
 
 * {
@@ -152,21 +158,26 @@ h1,
   padding: 0.65rem 1.3rem;
   background: var(--accent);
   color: var(--bg);
+  /* Invisible here; in forced colours it becomes the button's outline, which
+     is otherwise lost with the background. */
+  border: 2px solid transparent;
   border-radius: 0.25rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.cta__primary:visited {
+  color: var(--bg);
 }
 
 .cta__primary:hover {
   text-decoration: underline;
 }
 
-/* Section headings: H2 on Privacy (whose H1 is the page's own title, so its
-   sections sit one level down), H3 on the home page (whose H1 is the brand
-   name and H2 is the tagline, so sections sit one level further down still).
-   Same look either way. */
-main h2,
-main h3 {
+/* Section headings are H2 on every page. On the home page the tagline is a
+   paragraph grouped with the H1 in an <hgroup>, as DADS asks of subtitles, so
+   a reader moving by level 2 gets the sections here as on every other page. */
+main h2 {
   margin: 2.5rem 0 0.75rem;
   font-size: 1.375rem;
   line-height: 1.35;
@@ -179,11 +190,13 @@ h3 {
   font-size: 1.0625rem;
 }
 
+/* 1.5em of margin plus the line's own leading leaves about 2.3 times the font
+   size of white space between paragraphs — DADS's figure is 2.25 times. */
 p,
 ul,
 ol,
 table {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5em;
 }
 
 ul,
@@ -198,6 +211,10 @@ li {
 a {
   color: var(--accent);
   text-underline-offset: 0.15em;
+}
+
+a:visited {
+  color: var(--visited);
 }
 
 a:hover {
@@ -264,6 +281,35 @@ thead th {
   font-size: 0.9375rem;
 }
 
+/* Short runs of links are lists, so a screen reader says how many there are
+   and can move past them; spacing separates them, not a "·" in the text. */
+ul.lang,
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+ul.lang li,
+.footer-links li {
+  margin: 0;
+}
+
+.footer-links {
+  margin: 0 0 0.5rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* The link to the page you are on still works, and says so. */
+[aria-current="page"] {
+  font-weight: 700;
+}
+
 /* Hidden until theme.js confirms it can wire the buttons up — a control that
    cannot do anything must not be shown to a reader without JavaScript. */
 .theme-toggle {
@@ -274,7 +320,7 @@ thead th {
 
 .theme-toggle legend {
   padding: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--muted);
   margin-bottom: 0.3rem;
 }
@@ -289,8 +335,10 @@ thead th {
 
 .theme-toggle__options label {
   position: relative;
-  font-size: 0.8125rem;
-  padding: 0.3rem 0.75rem;
+  font-size: 1rem;
+  padding: 0.2rem 0.75rem;
+  /* Transparent until it marks the chosen option: see below. */
+  border: 2px solid transparent;
   border-radius: 999px;
   cursor: pointer;
 }
@@ -307,8 +355,11 @@ thead th {
   font-weight: 700;
 }
 
+/* The chosen option carries an outline at 3:1 or better, not only a fill and
+   a heavier weight — the fill alone is about 1.1:1 against the page. */
 .theme-toggle__options label:has(input:checked) {
   background: var(--surface);
+  border-color: var(--accent);
 }
 
 .theme-toggle__options label:has(input:focus-visible) {
@@ -325,12 +376,21 @@ footer {
   font-size: 0.9375rem;
 }
 
-code {
+/* kbd too: left to the browser it falls back to a 13px monospace default. */
+code,
+kbd {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9em;
   background: var(--surface);
   padding: 0.1em 0.35em;
   border-radius: 0.2em;
+}
+
+/* Japanese has no italic face, so the browser slants the upright one; DADS
+   asks to keep that to a minimum. Emphasis is bold instead. */
+:lang(ja) em {
+  font-style: normal;
+  font-weight: 700;
 }
 
 @media (forced-colors: active) {
@@ -339,5 +399,13 @@ code {
   }
   :focus-visible {
     outline-color: Highlight;
+  }
+  /* Transparent borders are drawn in forced colours, so the unchosen options
+     are set back to the canvas and only the chosen one is outlined. */
+  .theme-toggle__options label {
+    border-color: Canvas;
+  }
+  .theme-toggle__options label:has(input:checked) {
+    border-color: Highlight;
   }
 }

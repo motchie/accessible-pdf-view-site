@@ -18,10 +18,10 @@
     <header>
       <a class="skip" href="#main">Skip to content</a>
       <div class="top-bar">
-        <p class="lang">
-          <a href="/">Accessible PDF View</a> ·
-          <a href="/ja/privacy/" hreflang="ja" lang="ja">日本語</a>
-        </p>
+        <ul class="lang">
+          <li><a href="/">Accessible PDF View</a></li>
+          <li><a href="/ja/privacy/" hreflang="ja" lang="ja">日本語</a></li>
+        </ul>
         <fieldset class="theme-toggle" data-theme-toggle hidden>
           <legend>Theme</legend>
           <div class="theme-toggle__options">
@@ -31,8 +31,10 @@
           </div>
         </fieldset>
       </div>
-      <h1>Privacy</h1>
-      <p class="sub">Last updated: 27 September 2026</p>
+      <hgroup>
+        <h1>Privacy</h1>
+        <p class="sub">Last updated: 27 September 2026</p>
+      </hgroup>
     </header>
 
     <main id="main">
@@ -162,7 +164,12 @@
     </main>
 
     <footer>
-      <p><a href="/">Accessible PDF View</a> — MIT licensed.</p>
+      <ul class="footer-links">
+        <li><a href="/">Accessible PDF View</a></li>
+        <li><a href="/news/">What's new</a></li>
+        <li><a href="/privacy/" aria-current="page">Privacy</a></li>
+      </ul>
+      <p>MIT licensed.</p>
     </footer>
   </body>
 </html>

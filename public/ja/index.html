@@ -52,21 +52,22 @@
         </fieldset>
       </div>
 
-      <div class="lock">
-        <svg class="lock__mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
-          <rect x="3" y="3" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="2" />
-          <path
-            d="M0 22h16a2 2 0 0 0 2-2v-8a2 2 0 0 1 2-2h12"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="4"
-            stroke-linejoin="round"
-          />
-        </svg>
-        <h1 class="lock__word">Accessible PDF View</h1>
-      </div>
-
-      <h2 class="tagline">PDF を見出しから読める文書に</h2>
+      <hgroup>
+        <h1 class="lock">
+          <svg class="lock__mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="3" y="3" width="26" height="26" rx="3" fill="none" stroke="currentColor" stroke-width="2" />
+            <path
+              d="M0 22h16a2 2 0 0 0 2-2v-8a2 2 0 0 1 2-2h12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <span class="lock__word">Accessible PDF View</span>
+        </h1>
+        <p class="tagline">PDF を見出しから読める文書に</p>
+      </hgroup>
       <p class="sub">
         見出しジャンプ、リスト移動、行と列の見出しがある表。ふつうの Web
         ページでできることが、PDF でもできます。
@@ -81,7 +82,7 @@
     </header>
 
     <main id="main">
-      <h3>何をするか</h3>
+      <h2>何をするか</h2>
       <div class="scroll">
         <table>
           <caption>3 つの表示</caption>
@@ -110,15 +111,13 @@
 
       <p>
         通常は、PDF を開いた状態でツールバーのボタンを押すと開きます。設定で<strong>「PDF
-        を開くビューアー」</strong>をこの Reader に切り替えると、<code>.pdf</code>
+        を開くビューアー」</strong>をこのリーダーに切り替えると、<code>.pdf</code>
         で終わるアドレスの PDF を直接開くようになります。切り替えたときだけブラウザが権限を確認し、元に戻すと返却します。
       </p>
 
-      <h3>設計の原則</h3>
+      <h2>設計の原則</h2>
       <p>
-        目で見て確認できないことを、断定しません。
-        画像に説明がなければ「説明がありません」と言い、機械が読み取った文字には読むたびに出所を明示します。
-        ページからテキストが取れないときは、画像なのか、文字が図形として描かれているのか、本当に空なのかを実際に調べてから言い分けます。
+        目で見て確認できないことを、断定しません。画像に説明がなければ「説明がありません」と言い、機械が読み取った文字には読むたびに出所を明示します。ページからテキストが取れないときは、画像なのか、文字が図形として描かれているのか、本当に空なのかを実際に調べてから言い分けます。
       </p>
 
       <div class="scroll">
@@ -151,10 +150,10 @@
         </table>
       </div>
 
-      <h3>機能</h3>
+      <h2>機能</h2>
       <div class="scroll">
         <table>
-          <caption>Reader でできること</caption>
+          <caption>リーダーでできること</caption>
           <thead>
             <tr>
               <th scope="col">機能</th>
@@ -195,50 +194,44 @@
               <td>英語または日本語。文書自体の言語とは独立して選べます。</td>
             </tr>
             <tr>
-              <th scope="row">構造の2つの読み方</th>
+              <th scope="row">構造の 2 つの読み方</th>
               <td>作成者が付けたタグがあればそれを、なければ推測した構造を使用します。切り替えて見比べられます。</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h3>プライバシー</h3>
+      <h2>プライバシー</h2>
       <p>
-        PDF はブラウザの中だけで解析されます。
-        通常の利用で文書が外部のサーバーへ送信されることはありません。画像の説明や OCR
+        PDF はブラウザの中だけで解析されます。通常の利用で文書が外部のサーバーへ送信されることはありません。画像の説明や OCR
         に使う AI は、端末内で動くブラウザ内蔵のモデルです。
       </p>
       <p>
         インストール時に要求する権限は 5
-        つで、そのいずれもホスト権限ではありません。インストールしただけでは、どのサイトへのアクセス権も得ません。
-        任意のホスト権限が 1 つだけあり、「PDF を開くビューアー」をこの Reader
-        に切り替えたときにのみ要求し、元に戻すと返却します。
+        つで、そのいずれもホスト権限ではありません。インストールしただけでは、どのサイトへのアクセス権も得ません。任意のホスト権限が 1 つだけあり、「PDF を開くビューアー」をこのリーダーに切り替えたときにのみ要求し、元に戻すと返却します。
       </p>
       <p><a href="/ja/privacy/">プライバシーについて、詳しく</a></p>
 
-      <h3 id="news">最新情報</h3>
+      <h2 id="news">最新情報</h2>
       <p>
         <strong>バージョン 0.2.0</strong>（<time datetime="2026-09-27">2026 年 9 月 27 日</time>）:
-        Tagged PDF の宣言がない PDF でも構造タグを読み、宣言がないことを文書情報パネルに表示するようになりました。文字の対応表のないフォントの日本語・中国語も読めます。
+        作成者が付けた構造（見出しや読み順）を使える PDF が増えました。その構造が規格どおりに宣言されていないときは、文書情報パネルでそのことを知らせます。文字化けしていた一部の日本語・中国語も、正しく読めるようになりました。
       </p>
-      <p><a href="/ja/news/">これまでの変更点</a></p>
+      <p><a href="/ja/news/">最新情報（これまでの変更点）</a></p>
 
-      <h3 id="getting-it">入手する</h3>
+      <h2 id="getting-it">入手する</h2>
       <p>
         <a href="https://chromewebstore.google.com/detail/accessible-pdf-view/gcoebmifedejfelponipkphjndofofil">Chrome ウェブストアの Accessible PDF View</a>
       </p>
       <div class="note">
         <p>
-          Chrome の「セーフ ブラウジング保護強化機能」を有効にしていると、インストールの際に「この拡張機能は、セーフ
-          ブラウジング保護強化機能で信頼されていません」と表示されます。この表示は、Chrome
+          Chrome の「セーフ ブラウジング保護強化機能」を有効にしていると、インストールの際に「この拡張機能は、セーフブラウジング保護強化機能で信頼されていません」と表示されます。この表示は、Chrome
           ウェブストアのデベロッパーが、ポリシーを守って公開を続けた実績で判断されるもので、Google
           によれば、新しいデベロッパーは通常、信頼できると判断されるまでに数か月かかります。Accessible PDF View
           は 2026 年 9 月に公開したばかりのため、それまではこの表示が出ます。
         </p>
         <p>
-          インストールするには「インストールに進む」を選んでください。判断の材料として、要求する権限とデータの扱いを<a href="/ja/privacy/">プライバシー</a>に、ソースコードを
-          <a href="https://github.com/motchie/accessible-pdf-view">GitHub</a> に公開しています。仕組みについては
-          <a href="https://support.google.com/chrome_webstore/answer/2664769?hl=ja">Chrome ウェブストアのヘルプ</a>を参照してください。
+          インストールするには「インストールに進む」を選んでください。判断の材料として、要求する権限とデータの扱いを<a href="/ja/privacy/">プライバシー</a>に、<a href="https://github.com/motchie/accessible-pdf-view">ソースコード（GitHub）</a>を公開しています。仕組みについては、Chrome ウェブストア ヘルプの<a href="https://support.google.com/chrome_webstore/answer/2664769?hl=ja">「拡張機能をインストールして管理する」</a>を参照してください。
         </p>
       </div>
       <div class="note">
@@ -254,11 +247,12 @@
     </main>
 
     <footer>
-      <p>
-        Accessible PDF View — MIT ライセンス。
-        <a href="/ja/news/">最新情報</a> ·
-        <a href="/ja/privacy/">プライバシー</a>
-      </p>
+      <ul class="footer-links">
+        <li><a href="/ja/" aria-current="page">Accessible PDF View</a></li>
+        <li><a href="/ja/news/">最新情報</a></li>
+        <li><a href="/ja/privacy/">プライバシー</a></li>
+      </ul>
+      <p>MIT ライセンス。</p>
     </footer>
   </body>
 </html>

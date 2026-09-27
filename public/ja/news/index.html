@@ -18,10 +18,10 @@
     <header>
       <a class="skip" href="#main">本文へスキップ</a>
       <div class="top-bar">
-        <p class="lang">
-          <a href="/ja/">Accessible PDF View</a> ·
-          <a href="/news/" hreflang="en" lang="en">English</a>
-        </p>
+        <ul class="lang">
+          <li><a href="/ja/">Accessible PDF View</a></li>
+          <li><a href="/news/" hreflang="en" lang="en">English</a></li>
+        </ul>
         <fieldset class="theme-toggle" data-theme-toggle hidden>
           <legend>テーマ</legend>
           <div class="theme-toggle__options">
@@ -31,39 +31,47 @@
           </div>
         </fieldset>
       </div>
-      <h1>最新情報</h1>
-      <p class="sub">新しいバージョンと、その変更点。新しいものが上です。</p>
+      <hgroup>
+        <h1>最新情報</h1>
+        <p class="sub">新しいバージョンと、その変更点。新しいものが上です。</p>
+      </hgroup>
     </header>
 
     <main id="main">
-      <h2>バージョン 0.2.0</h2>
-      <p class="sub"><time datetime="2026-09-27">2026 年 9 月 27 日</time>、Chrome ウェブストアで公開</p>
+      <hgroup>
+        <h2>バージョン 0.2.0</h2>
+        <p class="sub"><time datetime="2026-09-27">2026 年 9 月 27 日</time>、Chrome ウェブストアで公開</p>
+      </hgroup>
       <ul>
         <li>
-          <strong>Tagged PDF の宣言がない PDF でも、構造タグを読むようになりました。</strong>
-          構造ツリーはあるのに、規格が求める宣言（<code>/MarkInfo</code> の <code>/Marked true</code>）がない
+          <strong>Tagged PDF の宣言がない PDF でも、構造タグを読むようになりました。</strong>構造ツリーはあるのに、規格が求める宣言（<code>/MarkInfo</code> の <code>/Marked true</code>）がない
           PDF では、これまでレイアウトからの推測になっていました。ページの文字の半分以上をタグが含んでいれば、作成者のタグを使います。
         </li>
         <li>
-          <strong>規格に沿っていないことを文書情報パネルに表示します。</strong>
-          そのような PDF では「構造タグ」が「あり（Tagged PDF の宣言なし）」となり、ほかのビューアや支援技術ではタグが使われないことがある、という注記が出ます。
+          <strong>規格に沿っていないことを文書情報パネルに表示します。</strong>そのような PDF では「構造タグ」が「あり（Tagged PDF の宣言なし）」となり、ほかのビューアーや支援技術ではタグが使われないことがある、という注記が出ます。
         </li>
         <li>
-          <strong>文字の対応表（ToUnicode）のないフォントの日本語・中国語を読めるようになりました。</strong>
-          推測の読み取りと Markdown 表示で文字化けし、ページが OCR 対象と判定されていたものです。
+          <strong>文字の対応表（ToUnicode）のないフォントの日本語・中国語を読めるようになりました。</strong>「レイアウトからの推測」の読み取りとマークダウン表示で文字化けし、ページが OCR 対象と判定されていたものです。
         </li>
       </ul>
       <p>
         <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.0">0.2.0 のリリースノート（GitHub）</a>
       </p>
 
-      <h2>バージョン 0.1.0</h2>
-      <p class="sub"><time datetime="2026-09-23">2026 年 9 月 23 日</time>、Chrome ウェブストアで公開</p>
+      <hgroup>
+        <h2>バージョン 0.1.0</h2>
+        <p class="sub"><time datetime="2026-09-23">2026 年 9 月 23 日</time>、Chrome ウェブストアで公開</p>
+      </hgroup>
       <p>最初の公開版です。</p>
     </main>
 
     <footer>
-      <p><a href="/ja/">Accessible PDF View</a> — MIT ライセンス。</p>
+      <ul class="footer-links">
+        <li><a href="/ja/">Accessible PDF View</a></li>
+        <li><a href="/ja/news/" aria-current="page">最新情報</a></li>
+        <li><a href="/ja/privacy/">プライバシー</a></li>
+      </ul>
+      <p>MIT ライセンス。</p>
     </footer>
   </body>
 </html>
