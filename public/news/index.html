@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>What's new — Accessible PDF View</title>
+    <meta name="description" content="New versions of Accessible PDF View, and what changed in each." />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/theme.js"></script>
+    <link rel="canonical" href="https://accessiblepdfview.org/news/" />
+    <link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/news/" />
+    <link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/news/" />
+  </head>
+  <body>
+    <header>
+      <a class="skip" href="#main">Skip to content</a>
+      <div class="top-bar">
+        <p class="lang">
+          <a href="/">Accessible PDF View</a> ·
+          <a href="/ja/news/" hreflang="ja" lang="ja">日本語</a>
+        </p>
+        <fieldset class="theme-toggle" data-theme-toggle hidden>
+          <legend>Theme</legend>
+          <div class="theme-toggle__options">
+            <label><input type="radio" name="apv-theme" value="system" /><span>System</span></label>
+            <label><input type="radio" name="apv-theme" value="light" /><span>Light</span></label>
+            <label><input type="radio" name="apv-theme" value="dark" /><span>Dark</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <h1>What's new</h1>
+      <p class="sub">New versions, and what changed in each. Newest first.</p>
+    </header>
+
+    <main id="main">
+      <h2>Version 0.2.0</h2>
+      <p class="sub">Published on the Chrome Web Store on <time datetime="2026-09-27">27 September 2026</time></p>
+      <ul>
+        <li>
+          <strong>Structure tags are read even when the PDF does not declare itself Tagged PDF.</strong>
+          A PDF with a structure tree but without the declaration the standard requires
+          (<code>/MarkInfo</code> with <code>/Marked true</code>) used to be read by inferring its
+          structure from the layout. The author's tags are now used, provided they carry at least half
+          of the text on the pages.
+        </li>
+        <li>
+          <strong>The document information panel says when a PDF does not conform.</strong>
+          For such a PDF, "Structure tags" reads "Yes, but not declared as Tagged PDF", with a note
+          that other viewers and assistive technology may not use its tags.
+        </li>
+        <li>
+          <strong>Japanese and Chinese text in fonts without a ToUnicode map is read.</strong>
+          In the inferred reading and the Markdown view it came out as noise, and the page was
+          flagged for OCR.
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.0">Release notes for 0.2.0 on GitHub</a>
+      </p>
+
+      <h2>Version 0.1.0</h2>
+      <p class="sub">Published on the Chrome Web Store on <time datetime="2026-09-23">23 September 2026</time></p>
+      <p>The first public release.</p>
+    </main>
+
+    <footer>
+      <p><a href="/">Accessible PDF View</a> — MIT licensed.</p>
+    </footer>
+  </body>
+</html>

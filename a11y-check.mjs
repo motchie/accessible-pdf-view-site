@@ -21,7 +21,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 const BASE = process.env.A11Y_BASE_URL ?? 'http://127.0.0.1:8899';
 
-const PAGES = ['/', '/ja/', '/privacy/', '/ja/privacy/', '/404.html'];
+const PAGES = ['/', '/ja/', '/privacy/', '/ja/privacy/', '/news/', '/ja/news/', '/404.html'];
 const THEMES = ['system', 'light', 'dark'];
 
 async function setTheme(page, theme) {

@@ -20,4 +20,14 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/privacy/" />
     <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/privacy/" />
   </url>
+  <url>
+    <loc>https://accessiblepdfview.org/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/news/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/news/" />
+  </url>
+  <url>
+    <loc>https://accessiblepdfview.org/ja/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/news/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/news/" />
+  </url>
 </urlset>

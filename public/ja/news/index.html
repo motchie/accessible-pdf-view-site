@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>最新情報 — Accessible PDF View</title>
+    <meta name="description" content="Accessible PDF View の新しいバージョンと、その変更点。" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/site.css" />
+    <script src="/theme.js"></script>
+    <link rel="canonical" href="https://accessiblepdfview.org/ja/news/" />
+    <link rel="alternate" hreflang="en" href="https://accessiblepdfview.org/news/" />
+    <link rel="alternate" hreflang="ja" href="https://accessiblepdfview.org/ja/news/" />
+  </head>
+  <body>
+    <header>
+      <a class="skip" href="#main">本文へスキップ</a>
+      <div class="top-bar">
+        <p class="lang">
+          <a href="/ja/">Accessible PDF View</a> ·
+          <a href="/news/" hreflang="en" lang="en">English</a>
+        </p>
+        <fieldset class="theme-toggle" data-theme-toggle hidden>
+          <legend>テーマ</legend>
+          <div class="theme-toggle__options">
+            <label><input type="radio" name="apv-theme" value="system" /><span>システム</span></label>
+            <label><input type="radio" name="apv-theme" value="light" /><span>ライト</span></label>
+            <label><input type="radio" name="apv-theme" value="dark" /><span>ダーク</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <h1>最新情報</h1>
+      <p class="sub">新しいバージョンと、その変更点。新しいものが上です。</p>
+    </header>
+
+    <main id="main">
+      <h2>バージョン 0.2.0</h2>
+      <p class="sub"><time datetime="2026-09-27">2026 年 9 月 27 日</time>、Chrome ウェブストアで公開</p>
+      <ul>
+        <li>
+          <strong>Tagged PDF の宣言がない PDF でも、構造タグを読むようになりました。</strong>
+          構造ツリーはあるのに、規格が求める宣言（<code>/MarkInfo</code> の <code>/Marked true</code>）がない
+          PDF では、これまでレイアウトからの推測になっていました。ページの文字の半分以上をタグが含んでいれば、作成者のタグを使います。
+        </li>
+        <li>
+          <strong>規格に沿っていないことを文書情報パネルに表示します。</strong>
+          そのような PDF では「構造タグ」が「あり（Tagged PDF の宣言なし）」となり、ほかのビューアや支援技術ではタグが使われないことがある、という注記が出ます。
+        </li>
+        <li>
+          <strong>文字の対応表（ToUnicode）のないフォントの日本語・中国語を読めるようになりました。</strong>
+          推測の読み取りと Markdown 表示で文字化けし、ページが OCR 対象と判定されていたものです。
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.0">0.2.0 のリリースノート（GitHub）</a>
+      </p>
+
+      <h2>バージョン 0.1.0</h2>
+      <p class="sub"><time datetime="2026-09-23">2026 年 9 月 23 日</time>、Chrome ウェブストアで公開</p>
+      <p>最初の公開版です。</p>
+    </main>
+
+    <footer>
+      <p><a href="/ja/">Accessible PDF View</a> — MIT ライセンス。</p>
+    </footer>
+  </body>
+</html>

@@ -19,6 +19,8 @@ how to verify it stays that way.
     public/ja/index.html       日本語
     public/privacy/            English
     public/ja/privacy/         日本語
+    public/news/               English — every version, newest first
+    public/ja/news/            日本語
     public/theme.js            the one script — see its own header comment
     public/404.html
     src/index.ts               response headers
@@ -28,6 +30,14 @@ no `Accept-Language` redirect, on purpose: guessing sends people somewhere
 they did not ask to be, makes a bookmarked URL mean different things on
 different machines, and is worst for a screen reader user who lands on an
 unexpected language and hears an unexpected voice with no explanation.
+
+## When a version ships
+
+Two places, each in both languages: a new entry at the top of `news/`, and
+the "What's new" paragraph on the top page, which names the latest version
+only. The date is the day the store published it, not the day it was
+submitted, so both wait for review. The extension's own release notes live in its repository as `releases/vX.Y.Z.md`
+and on GitHub; the site says what changed for a reader and links there.
 
 ## Working on it
 
