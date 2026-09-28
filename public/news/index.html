@@ -39,6 +39,39 @@
 
     <main id="main">
       <hgroup>
+        <h2>Version 0.2.2</h2>
+        <p class="sub">Published on the Chrome Web Store on <time datetime="2026-09-28">28 September 2026</time></p>
+      </hgroup>
+      <p>These apply to the tagged reading, and to the combined reading built on it.</p>
+      <ul>
+        <li>
+          <strong>Each figure shows its own part of the page.</strong>
+          Many PDFs wrap each figure in a page-sized clip — InDesign and PowerPoint exports
+          both do — and the Reader showed the whole page in the figure's place, once for every
+          such figure. In two documents it was checked against, that was 6 of 14 figures and
+          6 of 29; it is none now.
+        </li>
+        <li>
+          <strong>A figure no longer shows another figure's picture.</strong>
+          A figure too small to crop could be matched to an image nearby. It now keeps its
+          notice instead.
+        </li>
+        <li>
+          <strong>A picture drawn larger than its frame is shown at the size of the frame</strong>,
+          rather than with a wide empty margin.
+        </li>
+        <li>
+          <strong>The notice under a figure without alternative text says what is known.</strong>
+          Where the PDF could be read for it, the Reader now says the author gave none, rather
+          than that none could be obtained; says when a figure is too small to show; and treats
+          a figure the author marked decorative as decorative.
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.2">Release notes for 0.2.2 on GitHub</a>
+      </p>
+
+      <hgroup>
         <h2>Version 0.2.1</h2>
         <p class="sub">Published on the Chrome Web Store on <time datetime="2026-09-27">27 September 2026</time></p>
       </hgroup>
