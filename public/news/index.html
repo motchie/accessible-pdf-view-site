@@ -39,6 +39,39 @@
 
     <main id="main">
       <hgroup>
+        <h2>Version 0.2.4</h2>
+        <p class="sub">Published on the Chrome Web Store on <time datetime="2026-10-26">26 October 2026</time></p>
+      </hgroup>
+      <p>These apply to the tagged reading, and to the combined reading built on it.</p>
+      <ul>
+        <li>
+          <strong>A small figure the author described is shown as a picture.</strong>
+          A tagged figure under 24pt on a side used to get a notice instead of its picture. If the
+          author wrote alternative text for it, it is now shown however small it is, unless it is
+          a thin line under 2pt. It is drawn finer than other figures so it can be made out. For
+          these figures the picture now takes the place of the on-screen 「画像: …」 notice, and the
+          author's words are its alternative text, as for any figure whose picture is shown.
+          A small figure without the author's own words keeps the notice.
+        </li>
+        <li>
+          <strong>An empty alternative text is no longer treated as decorative.</strong>
+          Since 0.2.2 the Reader took a figure with an empty <code>/Alt</code> to be one the author
+          marked decorative. In what was measured, Word and PowerPoint do not mean that by it:
+          both leave a picture marked Decorative out of the structure, and PowerPoint writes an
+          empty <code>/Alt</code> for a shape given no alternative text. For such a figure the Reader
+          now says the author gave no alternative text, as it does for one without <code>/Alt</code>.
+          This reverses part of what 0.2.2 below describes.
+        </li>
+        <li>
+          <strong>PowerPoint's 「(グループ化されたオブジェクト)」 is removed</strong> from a group's
+          alternative text, where it read as part of the author's words.
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.4">Release notes for 0.2.4 on GitHub</a>
+      </p>
+
+      <hgroup>
         <h2>Version 0.2.3</h2>
         <p class="sub">Published on the Chrome Web Store on <time datetime="2026-10-25">25 October 2026</time></p>
       </hgroup>
