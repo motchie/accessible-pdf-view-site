@@ -39,6 +39,48 @@
 
     <main id="main">
       <hgroup>
+        <h2>Version 0.2.3</h2>
+        <p class="sub">Published on the Chrome Web Store on <time datetime="2026-10-25">25 October 2026</time></p>
+      </hgroup>
+      <ul>
+        <li>
+          <strong>The title is read once.</strong>
+          The Reader shows a PDF's title as the page heading and leaves out a first heading
+          that repeats it. Word tags its Title-style paragraph as a heading, and when the
+          title had a space between two Japanese characters the two did not match, so the
+          title was read a second time.
+        </li>
+        <li>
+          <strong>Heading counts are the headings you can move to.</strong>
+          The structure picker and the notice that another reading has headings no longer
+          count a title heading the Reader does not show, and the Markdown view no longer
+          repeats the title.
+        </li>
+        <li>
+          <strong>A tagged document whose only heading tag is its title can now get the combined
+          reading</strong>, on the same terms as one with no heading tags.
+        </li>
+        <li>
+          <strong>Chrome 147 or later is required</strong> (Edge 147). The bundled PDF.js uses
+          newer JavaScript without checking for it, and earlier releases already depended on
+          it: without <code>Math.sumPrecise</code>, which Chrome has from 147, embedded fonts fail
+          to load and text is read from a substitute font. That was seen in testing, not in an
+          old browser. The store no longer
+          installs or updates the extension in an older browser; a copy already installed there
+          stays on 0.2.2 until the browser is updated.
+        </li>
+        <li>
+          <strong>The libraries underneath are current</strong>: PDF.js 6.4 and pdf-inspector
+          1.25.2, still with this project's fix for Japanese and Chinese text in fonts without a
+          ToUnicode map. On the documents it is tested against, the structure the Reader shows is
+          unchanged. The extension is 0.45 MB smaller installed.
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.2.3">Release notes for 0.2.3 on GitHub</a>
+      </p>
+
+      <hgroup>
         <h2>Version 0.2.2</h2>
         <p class="sub">Published on the Chrome Web Store on <time datetime="2026-09-28">28 September 2026</time></p>
       </hgroup>
