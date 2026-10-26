@@ -33,7 +33,7 @@
       </div>
       <hgroup>
         <h1>Privacy</h1>
-        <p class="sub">Last updated: 27 September 2026</p>
+        <p class="sub">Last updated: 26 October 2026</p>
       </hgroup>
     </header>
 
@@ -53,7 +53,8 @@
       <p>
         Image descriptions and OCR are optional and use the browser's own
         on-device model. No image leaves the machine. Where no on-device
-        model is available, the feature is simply not offered.
+        model is available, the feature is simply not offered &mdash; which
+        is always the case in Firefox, since it has none an extension can use.
       </p>
       <p>
         When a PDF is opened from a URL, the browser fetches it as it would any download,
@@ -80,7 +81,7 @@
       <h2>Permissions</h2>
       <div class="scroll">
         <table>
-          <caption>Five permissions, none of them a host permission</caption>
+          <caption>Five permissions in Chrome, four in Firefox &mdash; none of them a host permission</caption>
           <thead>
             <tr>
               <th scope="col">Permission</th>
@@ -109,7 +110,10 @@
             </tr>
             <tr>
               <th scope="row"><code>sidePanel</code></th>
-              <td>Opens the settings in the browser's side panel.</td>
+              <td>
+                Opens the settings in the browser's side panel. Chrome only: in
+                Firefox the settings open in the sidebar, which needs no permission.
+              </td>
             </tr>
             <tr>
               <th scope="row"><code>declarativeNetRequestWithHostAccess</code></th>
@@ -127,17 +131,36 @@
         to no site at all.
       </p>
       <p>
-        One optional host permission exists, and one feature uses it. Switching
-        <strong>Opening PDFs</strong> to the Reader asks for access to every
-        <code>http</code> and <code>https</code> site; switching it back hands that
-        access in again. Sending a PDF to the Reader means recognising its address
-        <em>before the page loads</em>, and no browser allows that for sites an
-        extension cannot already reach &mdash; so the feature costs that access, and
-        there is no smaller version of it. Leave the setting alone and nothing is ever
-        asked for.
+        One optional host permission exists, and nothing asks for it until you do
+        something that needs it. There are two such things.
+      </p>
+      <ul>
+        <li>
+          <strong>One site, when a PDF could not be read.</strong> The temporary
+          access above covers the tab you pressed the button in, so a PDF on a
+          different site &mdash; a link you right-clicked, say &mdash; is out of
+          its reach. In Firefox it is out of reach for any PDF from another site,
+          because Firefox's <code>activeTab</code> does not cover reading a file.
+          When that happens the Reader names the site and offers to ask for that
+          one site. Access you grant stays until you remove it in the browser's
+          own extension settings.
+        </li>
+        <li>
+          <strong>Every site, for Opening PDFs.</strong> Switching
+          <strong>Opening PDFs</strong> to the Reader asks for access to every
+          <code>http</code> and <code>https</code> site; switching it back hands that
+          access in again. Sending a PDF to the Reader means recognising its address
+          <em>before the page loads</em>, and no browser allows that for sites an
+          extension cannot already reach &mdash; so the feature costs that access, and
+          there is no smaller version of it.
+        </li>
+      </ul>
+      <p>
+        Do neither and nothing is ever asked for. Access you grant does not change
+        what is collected: still nothing, and nothing is sent anywhere.
       </p>
       <p>
-        The rule itself is declarative: the browser matches it and acts on it, so the
+        For Opening PDFs, the rule itself is declarative: the browser matches it and acts on it, so the
         extension sees no request, runs no code as you navigate, and learns nothing
         about what you visit.
       </p>
