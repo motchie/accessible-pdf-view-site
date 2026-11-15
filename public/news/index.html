@@ -39,6 +39,42 @@
 
     <main id="main">
       <hgroup>
+        <h2>Version 0.3.0</h2>
+        <p class="sub">Published on Firefox Add-ons on <time datetime="2026-11-15">15 November 2026</time>; in review on the Chrome Web Store</p>
+      </hgroup>
+      <p>Accessible PDF View is now on <a href="https://addons.mozilla.org/en-US/firefox/addon/accessible-pdf-view/">Firefox Add-ons</a>, for Firefox 144 or later on desktop, and this version fixes what reading it in Firefox showed.</p>
+      <ul>
+        <li>
+          <strong>In Firefox, the Japanese interface is no longer announced as English.</strong>
+          With NVDA, 「英語」 came before the Reader's Japanese text. The page's language is now set
+          before the page is built, and switching it in the settings rebuilds the interface in the
+          new language. A rebuild stops OCR running at that moment, and may stop an image-description
+          run; what either had finished is kept.
+        </li>
+        <li>
+          <strong>Settings that do nothing in Firefox are left out:</strong> the language for
+          AI-generated text, and the note about generated results under the structure choice.
+          Firefox has no on-device model an extension can use.
+        </li>
+        <li>
+          <strong>Each radio button is named by its label alone.</strong>
+          The explanation under each choice used to be part of the name, so the whole paragraph was
+          spoken every time. It is now the radio's description, still shown on screen.
+        </li>
+        <li>
+          <strong>The document's own title keeps the document's language</strong>, so a Japanese
+          title is still marked Japanese when the interface is English.
+        </li>
+        <li>
+          <strong>PDF.js 6.5.438.</strong> A tagged PDF whose structure tree has no ParentTree now
+          offers its tagged readings; until now it could only be read by inference.
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.3.0">Release notes for 0.3.0 on GitHub</a>
+      </p>
+
+      <hgroup>
         <h2>Version 0.2.4</h2>
         <p class="sub">Published on the Chrome Web Store on <time datetime="2026-10-26">26 October 2026</time></p>
       </hgroup>

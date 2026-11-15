@@ -39,6 +39,32 @@
 
     <main id="main">
       <hgroup>
+        <h2>バージョン 0.3.0</h2>
+        <p class="sub"><time datetime="2026-11-15">2026 年 11 月 15 日</time>、Firefox アドオンで公開。Chrome ウェブストアは審査中</p>
+      </hgroup>
+      <p>Accessible PDF View を <a href="https://addons.mozilla.org/ja/firefox/addon/accessible-pdf-view/">Firefox アドオン</a>でも公開しました。デスクトップ版の Firefox 144 以降が必要です。このバージョンでは、Firefox で使ってみてわかった問題を直しています。</p>
+      <ul>
+        <li>
+          <strong>Firefox で、日本語の画面が「英語」として読み上げられなくなりました。</strong>NVDA では、Reader の日本語の文字の前に「英語」と付いていました。ページを作る前に言語を決めるようにし、設定で言語を切り替えたときは画面をその言語で作り直します。作り直すときに実行中の OCR は止まり、画像の説明も止まることがあります。それまでに終わった分は残ります。
+        </li>
+        <li>
+          <strong>Firefox では働かない設定を表示しなくなりました。</strong>「AI が生成する文章の言語」の設定と、「構造の読み取り方」の下の生成結果についての注記です。Firefox には、拡張機能から使える端末内の AI モデルがありません。
+        </li>
+        <li>
+          <strong>ラジオボタンの名前を、短い名前だけにしました。</strong>各選択肢の下の説明文までが名前に含まれ、移るたびに全文が読み上げられていました。説明文はラジオボタンの「説明」として伝わり、画面にもこれまでどおり表示します。
+        </li>
+        <li>
+          <strong>文書の題名に、文書自身の言語を付けるようにしました。</strong>表示言語を英語にしていても、日本語の題名は日本語として伝わります。
+        </li>
+        <li>
+          <strong>PDF.js 6.5.438 にしました。</strong>ParentTree のない構造タグ付き PDF でも、構造タグによる読み取りを選べるようになりました（これまでは推測による読み取りだけでした）。
+        </li>
+      </ul>
+      <p>
+        <a href="https://github.com/motchie/accessible-pdf-view/releases/tag/v0.3.0">0.3.0 のリリースノート（GitHub）</a>
+      </p>
+
+      <hgroup>
         <h2>バージョン 0.2.4</h2>
         <p class="sub"><time datetime="2026-10-26">2026 年 10 月 26 日</time>、Chrome ウェブストアで公開</p>
       </hgroup>
